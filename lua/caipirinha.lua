@@ -49,6 +49,14 @@ function M.setup(options)
   vim.api.nvim_create_user_command('Caipirinha', M.pick_colorscheme, {})
 end
 
+function M.apply_colorscheme(name, save)
+  if not name then return end
+  save = save ~= nil and save or true
+
+  colorscheme.apply_colorscheme(name, save)
+  colorscheme.execute_callback(M.options.callback)
+end
+
 function M.pick_colorscheme(opts)
   if not is_configured() then return end
 
