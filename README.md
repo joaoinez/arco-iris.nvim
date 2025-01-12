@@ -75,10 +75,11 @@ branch and also on Pull Request. Tests will be run using
   - [ ] custom ui
 - [x] Colorscheme persistance
 - [x] Random colorscheme on startup
-- [ ] Robust user commands
+- [x] Robust user commands
 - [ ] README / Documentation
 - [ ] Types / docstrings
 - [ ] Pickers opts
 - [ ] Remote colorschemes
 - [ ] Tests
 - [ ] Project specific colorschemes
+- [ ] Better filtering, like dark/light themes, etc
