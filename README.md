@@ -81,3 +81,4 @@ branch and also on Pull Request. Tests will be run using
 - [ ] Pickers opts
 - [ ] Remote colorschemes
 - [ ] Tests
+- [ ] Project specific colorschemes
