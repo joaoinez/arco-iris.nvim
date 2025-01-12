@@ -3,6 +3,7 @@
 local M = {}
 
 M.fzf_lua = require('caipirinha.picker.fzf-lua').pick
+M.telescope = require('caipirinha.picker.telescope').pick
 
 -- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
 ---@brief Open a picker to select a colorscheme.

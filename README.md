@@ -70,11 +70,11 @@ branch and also on Pull Request. Tests will be run using
 
 - [ ] Switch Colorscheme
   - [x] fzf-lua integration
-  - [ ] telescope integration
+  - [x] telescope integration
   - [ ] mini.pick integration
-  - [ ] neovim ui integration
+  - [ ] custom ui
 - [x] Colorscheme persistance
 - [x] Random colorscheme on startup
 - [ ] README / Documentation
 - [ ] Types / docstrings
-- [ ] Remote colorscheme functionality
+- [ ] Remote colorschemes
