@@ -6,6 +6,7 @@ local M = {}
 
 local function with_defaults(options)
   return {
+    auto_start = options.auto_start or true,
     picker = options.picker or 'fzf',
     filter = {
       installed = (options.filter or {}).installed,
@@ -40,8 +41,10 @@ function M.setup(options)
     colors_name = random_colorscheme
   end
 
-  colorscheme.apply_colorscheme(colors_name)
-  colorscheme.execute_callback(M.options.callback)
+  if M.options.auto_start then
+    colorscheme.apply_colorscheme(colors_name)
+    colorscheme.execute_callback(M.options.callback)
+  end
 
   vim.api.nvim_create_user_command('ColorschemeSwitch', M.switch_colorscheme, {})
 end
