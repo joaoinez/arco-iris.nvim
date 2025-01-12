@@ -1,5 +1,5 @@
-if vim.fn.has 'nvim-0.5.0' == 0 then
-  vim.api.nvim_err_writeln 'caipirinha.nvim requires at least nvim-0.5.0.1'
+if vim.fn.has 'nvim-0.10.0' == 0 then
+  vim.api.nvim_err_writeln 'caipirinha.nvim requires at least nvim-0.10.0.1'
   return
 end
 
