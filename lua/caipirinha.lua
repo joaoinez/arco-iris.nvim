@@ -32,17 +32,17 @@ function M.setup(options)
   if not filesystem.file_exists(path) then filesystem.write_file(path, vim.json.encode(default_colorscheme_config)) end
 
   local colors_name = colorscheme.get_current_colorscheme()
+  local write = true
 
   if M.options.random.enabled then
     local random_colorscheme = colorscheme.get_random_colorscheme(M.options.random.colorschemes)
 
-    filesystem.write_colorscheme(random_colorscheme)
-
     colors_name = random_colorscheme
+    write = false
   end
 
   if M.options.auto_start then
-    colorscheme.apply_colorscheme(colors_name)
+    colorscheme.apply_colorscheme(colors_name, write)
     colorscheme.execute_callback(M.options.callback)
   end
 
@@ -53,7 +53,7 @@ function M.switch_colorscheme()
   if not is_configured() then return end
 
   picker.pick(M.options.picker, function(color)
-    colorscheme.apply_colorscheme(color)
+    colorscheme.apply_colorscheme(color, true)
     colorscheme.execute_callback(M.options.callback)
   end, M.options.filter)
 end

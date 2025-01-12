@@ -81,8 +81,8 @@ function M.get_random_colorscheme(colorschemes)
   return random_colorscheme
 end
 
-function M.apply_colorscheme(colorscheme)
-  filesystem.write_colorscheme(colorscheme)
+function M.apply_colorscheme(colorscheme, write)
+  if write then filesystem.write_colorscheme(colorscheme) end
 
   vim.g.colors_name = colorscheme
 
