@@ -2,8 +2,9 @@
 
 local M = {}
 
-M.fzf_lua = require('caipirinha.picker.fzf-lua').pick
+M.fzf = require('caipirinha.picker.fzf').pick
 M.telescope = require('caipirinha.picker.telescope').pick
+M.mini = require('caipirinha.picker.mini').pick
 
 -- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
 ---@brief Open a picker to select a colorscheme.
@@ -12,11 +13,11 @@ M.telescope = require('caipirinha.picker.telescope').pick
 ---@param callback function: Callback function to run after selecting a colorscheme
 function M.pick(picker, callback, filter)
   if picker == 'fzf' and pcall(require, 'fzf-lua') then
-    M.fzf_lua(callback, filter)
+    M.fzf(callback, filter)
   elseif picker == 'telescope' and pcall(require, 'telescope') then
     M.telescope(callback, filter)
   elseif picker == 'mini' and pcall(require, 'mini.pick') then
-    M.minipick(callback, filter)
+    M.mini(callback, filter)
   else
     vim.api.nvim_err_writeln 'No picker found. Please install fzf-lua, telescope.nvim, or mini.pick'
   end

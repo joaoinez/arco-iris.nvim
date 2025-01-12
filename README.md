@@ -71,7 +71,7 @@ branch and also on Pull Request. Tests will be run using
 - [ ] Switch Colorscheme
   - [x] fzf-lua integration
   - [x] telescope integration
-  - [ ] mini.pick integration
+  - [x] mini.pick integration
   - [ ] custom ui
 - [x] Colorscheme persistance
 - [x] Random colorscheme on startup
