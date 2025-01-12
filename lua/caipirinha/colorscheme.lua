@@ -42,6 +42,8 @@ function M.get_current_colorscheme()
 end
 
 function M.get_installed_colorschemes(filter)
+  if filter == nil then filter = {} end
+
   local colors = vim.fn.getcompletion('', 'color')
 
   if filter.installed == 'default' then return M.default_colorschemes end

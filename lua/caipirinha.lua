@@ -5,16 +5,19 @@ local picker = require 'caipirinha.picker'
 local M = {}
 
 local function with_defaults(options)
+  local filter = options.filter or {}
+  local random = options.random or {}
+
   return {
     auto_start = options.auto_start or true,
     picker = options.picker or 'fzf',
     filter = {
-      installed = (options.filter or {}).installed,
+      installed = filter.installed,
     },
     callback = options.callback,
     random = {
-      enabled = (options.random or {}).enabled or false,
-      colorschemes = (options.random or {}).colorschemes or {},
+      enabled = random.enabled or false,
+      colorschemes = random.colorschemes or {},
     },
   }
 end
@@ -46,14 +49,52 @@ function M.setup(options)
     colorscheme.execute_callback(M.options.callback)
   end
 
-  vim.api.nvim_create_user_command('Caipirinha', M.pick_colorscheme, {})
+  vim.api.nvim_create_user_command('Caipirinha', function(opts)
+    local args = opts.fargs
+
+    if args[1] == 'pick' then
+      M.pick_colorscheme { picker = args[2] }
+    elseif args[1] == 'apply' then
+      M.apply_colorscheme(args[2])
+    elseif args[1] == 'get_current_colorscheme' then
+      vim.print(M.get_current_colorscheme())
+    end
+  end, {
+    nargs = '*',
+    complete = function(_, line)
+      local l = vim.split(line, '%s+')
+      local n = #l - 2
+
+      if n == 0 then
+        local commands = { 'pick', 'apply', 'get_current_colorscheme' }
+        commands = vim.iter(commands):flatten():totable()
+        table.sort(commands)
+
+        return vim.tbl_filter(function(val) return vim.startswith(val, l[2]) end, commands)
+      end
+
+      if n == 1 then
+        local commands = {}
+        if l[2] == 'pick' then
+          commands = { 'fzf', 'telescope', 'mini' }
+        elseif l[2] == 'apply' then
+          commands = colorscheme.get_installed_colorschemes()
+        end
+
+        commands = vim.iter(commands):flatten():totable()
+        table.sort(commands)
+
+        return vim.tbl_filter(function(val) return vim.startswith(val, l[3]) end, commands)
+      end
+    end,
+  })
 end
 
 function M.get_current_colorscheme() return colorscheme.get_current_colorscheme() end
 
 function M.apply_colorscheme(name, save)
   if not name then return end
-  save = save ~= nil and save or true
+  if save == nil then save = true end
 
   colorscheme.apply_colorscheme(name, save)
   colorscheme.execute_callback(M.options.callback)
@@ -61,6 +102,7 @@ end
 
 function M.pick_colorscheme(opts)
   if not is_configured() then return end
+  if opts == nil then opts = {} end
 
   picker.pick(opts.picker or M.options.picker, function(color)
     colorscheme.apply_colorscheme(color, true)
