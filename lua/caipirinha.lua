@@ -30,15 +30,17 @@ function M.setup(options)
 
   if not filesystem.file_exists(path) then filesystem.write_file(path, vim.json.encode(default_colorscheme_config)) end
 
+  local colors_name = colorscheme.get_current_colorscheme()
+
   if M.options.random.enabled then
     local random_colorscheme = colorscheme.get_random_colorscheme(M.options.random.colorschemes)
 
     filesystem.write_colorscheme(random_colorscheme)
 
-    vim.g.colors_name = random_colorscheme
+    colors_name = random_colorscheme
   end
 
-  colorscheme.apply_colorscheme(vim.g.colors_name)
+  colorscheme.apply_colorscheme(colors_name)
   colorscheme.execute_callback(M.options.callback)
 
   vim.api.nvim_create_user_command('ColorschemeSwitch', M.switch_colorscheme, {})

@@ -1,4 +1,4 @@
-local files = require 'caipirinha.filesystem'
+local filesystem = require 'caipirinha.filesystem'
 
 local M = {}
 
@@ -32,7 +32,9 @@ M.default_colorschemes = {
 }
 
 function M.get_current_colorscheme()
-  if vim.g.colors_name then
+  if filesystem.file_exists(filesystem.colorscheme_config_path) then
+    return vim.json.decode(filesystem.read_file(filesystem.colorscheme_config_path)).colorscheme
+  elseif vim.g.colors_name then
     return vim.g.colors_name
   else
     return 'default'
@@ -80,7 +82,7 @@ function M.get_random_colorscheme(colorschemes)
 end
 
 function M.apply_colorscheme(colorscheme)
-  files.write_colorscheme(colorscheme)
+  filesystem.write_colorscheme(colorscheme)
 
   vim.g.colors_name = colorscheme
 
