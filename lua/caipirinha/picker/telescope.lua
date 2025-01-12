@@ -37,4 +37,6 @@ function M.pick(callback, filter)
     :find()
 end
 
-return M
+return setmetatable(M, {
+  __call = function(self, ...) return self.pick(...) end,
+})

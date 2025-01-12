@@ -32,4 +32,6 @@ function M.pick(callback, filter)
   }
 end
 
-return M
+return setmetatable(M, {
+  __call = function(self, ...) return self.pick(...) end,
+})

@@ -69,4 +69,6 @@ function M.pick(callback, filter)
   core.fzf_exec(colors, opts)
 end
 
-return M
+return setmetatable(M, {
+  __call = function(self, ...) return self.pick(...) end,
+})
