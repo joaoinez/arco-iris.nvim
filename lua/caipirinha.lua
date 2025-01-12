@@ -46,16 +46,16 @@ function M.setup(options)
     colorscheme.execute_callback(M.options.callback)
   end
 
-  vim.api.nvim_create_user_command('ColorschemeSwitch', M.switch_colorscheme, {})
+  vim.api.nvim_create_user_command('Caipirinha', M.pick_colorscheme, {})
 end
 
-function M.switch_colorscheme()
+function M.pick_colorscheme(opts)
   if not is_configured() then return end
 
-  picker.pick(M.options.picker, function(color)
+  picker.pick(opts.picker or M.options.picker, function(color)
     colorscheme.apply_colorscheme(color, true)
     colorscheme.execute_callback(M.options.callback)
-  end, M.options.filter)
+  end, opts.filter or M.options.filter)
 end
 
 M.options = nil
