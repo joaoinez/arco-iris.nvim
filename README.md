@@ -72,6 +72,7 @@ branch and also on Pull Request. Tests will be run using
   - [x] fzf-lua integration
   - [x] telescope integration
   - [x] mini.pick integration
+  - [x] snacks.picker integration
   - [x] custom ui
 - [x] Colorscheme persistance
 - [x] Random colorscheme on startup
