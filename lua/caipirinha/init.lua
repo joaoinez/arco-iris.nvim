@@ -9,7 +9,7 @@ local function with_defaults(options)
   local random = options.random or {}
 
   return {
-    auto_start = options.auto_start or true,
+    auto_start = options.auto_start == nil and true or options.auto_start,
     picker = options.picker or 'nui',
     filter = {
       installed = filter.installed or 'user',
@@ -44,7 +44,7 @@ function M.setup(options)
     write = false
   end
 
-  if M.options.auto_start then
+  if M.options.auto_start == true then
     colorscheme.apply_colorscheme(colors_name, write)
     colorscheme.execute_callback(M.options.callback)
   end
