@@ -13,7 +13,7 @@ function M.pick(callback, filter)
   }
 
   local win_config = function()
-    local height = math.floor(0.8 * vim.o.lines)
+    local height = math.floor(0.5 * vim.o.lines)
     local width = math.floor(0.5 * vim.o.columns)
     return {
       anchor = 'NW',

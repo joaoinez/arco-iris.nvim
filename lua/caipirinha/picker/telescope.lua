@@ -15,7 +15,7 @@ function M.pick(callback, filter)
       sorting_strategy = 'ascending',
       layout_config = {
         width = 0.5,
-        height = 0.8,
+        height = 0.5,
         prompt_position = 'top',
         anchor = 'NE',
       },

@@ -12,7 +12,7 @@ function M.pick(callback, filter)
   local opts = {
     prompt = 'Colorschemes> ',
     live_preview = true,
-    winopts = { row = 0, col = 0.99, width = 0.50, backdrop = false },
+    winopts = { row = 0, col = 0.99, width = 0.5, height = 0.5, backdrop = false },
     fzf_opts = { ['--no-multi'] = true },
     actions = { ['enter'] = actions.colorscheme },
     complete = function(selected) callback(selected[1]) end,
