@@ -78,8 +78,9 @@ branch and also on Pull Request. Tests will be run using
 - [x] Robust user commands
 - [ ] README / Documentation
 - [ ] Types / docstrings
-- [ ] Pickers opts
-- [ ] Remote colorschemes
+- [ ] Pickers' options
 - [ ] Tests
 - [ ] Better filtering, like dark/light themes, etc
 - [ ] Project specific colorschemes
+- [ ] Remote colorschemes
+- [ ] Add colorscheme from url
