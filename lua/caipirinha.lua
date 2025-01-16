@@ -76,7 +76,7 @@ function M.setup(options)
       if n == 1 then
         local commands = {}
         if l[2] == 'pick' then
-          commands = { 'fzf', 'telescope', 'mini', 'nui' }
+          commands = { 'fzf', 'telescope', 'mini', 'snacks', 'nui' }
         elseif l[2] == 'apply' then
           commands = colorscheme.get_installed_colorschemes()
         end
