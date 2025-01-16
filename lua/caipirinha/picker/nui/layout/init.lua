@@ -25,7 +25,7 @@ function M.init(enter)
     },
     size = {
       width = '100%',
-      height = '95%',
+      height = '93%',
     },
   }
 
