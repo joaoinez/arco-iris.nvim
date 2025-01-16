@@ -5,6 +5,7 @@ local M = {}
 M.fzf = require 'caipirinha.picker.fzf'
 M.telescope = require 'caipirinha.picker.telescope'
 M.mini = require 'caipirinha.picker.mini'
+M.nui = require 'caipirinha.picker.nui'
 
 -- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
 ---@brief Open a picker to select a colorscheme.
@@ -18,8 +19,10 @@ function M.pick(picker, callback, filter)
     M.telescope(callback, filter)
   elseif picker == 'mini' and pcall(require, 'mini.pick') then
     M.mini(callback, filter)
+  elseif picker == 'nui' and pcall(require, 'nui.popup') then
+    M.nui(callback, filter)
   else
-    vim.api.nvim_err_writeln 'No picker found. Please install fzf-lua, telescope.nvim, or mini.pick'
+    vim.api.nvim_err_writeln 'No picker found. Please install fzf-lua, telescope.nvim, mini.pick or nui.nvim'
   end
 end
 

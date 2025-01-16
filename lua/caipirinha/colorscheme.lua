@@ -73,6 +73,14 @@ function M.get_installed_colorschemes(filter)
     end
   end
 
+  for i, color in ipairs(colors) do
+    if color == M.get_current_colorscheme() then
+      table.remove(colors, i)
+      table.insert(colors, 1, color)
+      break
+    end
+  end
+
   return colors
 end
 

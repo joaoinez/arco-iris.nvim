@@ -12,7 +12,7 @@ local function with_defaults(options)
     auto_start = options.auto_start or true,
     picker = options.picker or 'fzf',
     filter = {
-      installed = filter.installed,
+      installed = filter.installed or 'all',
     },
     callback = options.callback,
     random = {
@@ -76,7 +76,7 @@ function M.setup(options)
       if n == 1 then
         local commands = {}
         if l[2] == 'pick' then
-          commands = { 'fzf', 'telescope', 'mini' }
+          commands = { 'fzf', 'telescope', 'mini', 'nui' }
         elseif l[2] == 'apply' then
           commands = colorscheme.get_installed_colorschemes()
         end
