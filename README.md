@@ -81,7 +81,10 @@ branch and also on Pull Request. Tests will be run using
 - [ ] Types / docstrings
 - [ ] Pickers' options
 - [ ] Tests
-- [ ] Better filtering, like dark/light themes, etc
+- [ ] Multiple selection
+- [ ] Favourite colorschemes
 - [ ] Project specific colorschemes
+- [ ] VimResized handling
 - [ ] Remote colorschemes
+- [ ] Better filtering, like dark/light themes, etc
 - [ ] Add colorscheme from url
