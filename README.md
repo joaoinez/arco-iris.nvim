@@ -68,11 +68,11 @@ branch and also on Pull Request. Tests will be run using
 
 ## Roadmap
 
-- [ ] Switch Colorscheme
+- [x] Switch colorscheme
   - [x] fzf-lua integration
   - [x] telescope integration
   - [x] mini.pick integration
-  - [ ] custom ui
+  - [x] custom ui
 - [x] Colorscheme persistance
 - [x] Random colorscheme on startup
 - [x] Robust user commands
@@ -81,5 +81,5 @@ branch and also on Pull Request. Tests will be run using
 - [ ] Pickers opts
 - [ ] Remote colorschemes
 - [ ] Tests
-- [ ] Project specific colorschemes
 - [ ] Better filtering, like dark/light themes, etc
+- [ ] Project specific colorschemes
