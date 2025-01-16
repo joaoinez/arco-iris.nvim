@@ -3,7 +3,6 @@ local M = {
   colors = {},
   filtered_colors = {},
   filter = nil,
-  header = nil,
   ui = {
     tabs = {},
   },

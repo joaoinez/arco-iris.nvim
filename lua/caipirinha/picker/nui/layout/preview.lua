@@ -4,6 +4,7 @@ function M.init()
   local Popup = require 'nui.popup'
   local NuiText = require 'nui.text'
   local NuiLine = require 'nui.line'
+  local state = require 'caipirinha.picker.nui.state'
 
   local preview = Popup {
     border = {
@@ -52,8 +53,12 @@ fizz_buzz(42)
 
   for i, line in ipairs(lines) do
     if i ~= #lines then
+      if i == 6 then
+        local width = (math.floor(vim.api.nvim_win_get_config(state.ui.container.win).width * (3 / 4)))
+
+        line = line .. string.rep(' ', width - #line - 8)
+      end
       local cursor_line = NuiText((i < 10 and '   ' or '  ') .. i .. '  ', i == 6 and 'CursorLineNr' or 'LineNr')
-      -- TODO: Improve this
       local nui_text = NuiText(line, i == 6 and 'CursorLine' or nil)
       local nui_line = NuiLine { cursor_line, nui_text }
 
