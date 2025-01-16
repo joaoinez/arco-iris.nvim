@@ -10,9 +10,9 @@ local function with_defaults(options)
 
   return {
     auto_start = options.auto_start or true,
-    picker = options.picker or 'fzf',
+    picker = options.picker or 'nui',
     filter = {
-      installed = filter.installed or 'all',
+      installed = filter.installed or 'user',
     },
     callback = options.callback,
     random = {
