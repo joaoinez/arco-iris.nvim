@@ -1,5 +1,13 @@
+--- snacks.picker picker integration for caipirinha.
+---
+---@module 'caipirinha.picker.snacks'
+---
 local M = {}
 
+--- Uses snacks.picker to pick a colorscheme
+---
+---@param callback function
+---@param _ caipirinha.Options.filter
 function M.pick(callback, _)
   local snacks = require('snacks').picker
 

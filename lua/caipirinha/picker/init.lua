@@ -1,5 +1,7 @@
----@diagnostic disable: undefined-field
-
+--- Picker integrations for caipirinha.
+---
+---@module 'caipirinha.picker'
+---
 local M = {}
 
 M.fzf = require 'caipirinha.picker.fzf'
@@ -8,11 +10,14 @@ M.mini = require 'caipirinha.picker.mini'
 M.snacks = require 'caipirinha.picker.snacks'
 M.nui = require 'caipirinha.picker.nui'
 
--- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
----@brief Open a picker to select a colorscheme.
+-- NOTE: From https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
+
+--- This function will try to use fzf-lua, telescope.nvim, mini.pick, snacks.picker
+--- or nui to open a picker to select a colorscheme
 ---
----This function will try to use fzf-lua, telescope.nvim, or mini.pick to open a picker to select a colorscheme.
+---@param picker caipirinha.Options.picker
 ---@param callback function: Callback function to run after selecting a colorscheme
+---@param filter? caipirinha.Options.filter
 function M.pick(picker, callback, filter)
   if picker == 'fzf' and pcall(require, 'fzf-lua') then
     M.fzf(callback, filter)

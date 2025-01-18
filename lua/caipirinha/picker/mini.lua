@@ -1,6 +1,15 @@
+--- mini.pick picker integration for caipirinha.
+---
+---@module 'caipirinha.picker.mini'
+---
 local M = {}
 
--- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
+-- NOTE: From https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
+
+--- Uses mini.pick to pick a colorscheme
+---
+---@param callback function
+---@param filter caipirinha.Options.filter
 function M.pick(callback, filter)
   local MiniPick = require 'mini.pick'
   local colorschemes = require 'caipirinha.colorscheme'

@@ -1,6 +1,15 @@
+--- fzf-lua picker integration for caipirinha.
+---
+---@module 'caipirinha.picker.fzf'
+---
 local M = {}
 
--- From: https://github.com/ibhagwan/fzf-lua/blob/main/lua/fzf-lua/providers/colorschemes.lua
+-- NOTE: From https://github.com/ibhagwan/fzf-lua/blob/main/lua/fzf-lua/providers/colorschemes.lua
+
+--- Uses fzf-lua to pick a colorscheme
+---
+---@param callback function
+---@param filter caipirinha.Options.filter
 function M.pick(callback, filter)
   local actions = require 'fzf-lua.actions'
   local colorschemes = require 'caipirinha.colorscheme'
@@ -12,7 +21,13 @@ function M.pick(callback, filter)
   local opts = {
     prompt = 'Colorschemes> ',
     live_preview = true,
-    winopts = { row = 0, col = 0.99, width = 0.5, height = 0.5, backdrop = false },
+    winopts = {
+      row = 0,
+      col = 0.99,
+      width = 0.5,
+      height = 0.5,
+      backdrop = false,
+    },
     fzf_opts = { ['--no-multi'] = true },
     actions = { ['enter'] = actions.colorscheme },
     complete = function(selected) callback(selected[1]) end,
@@ -48,7 +63,9 @@ function M.pick(callback, filter)
     opts.preview = shell.raw_action(function(sel)
       if opts.live_preview and sel then
         vim.cmd('colorscheme ' .. sel[1])
-        if type(opts.cb_preview) == 'function' then opts.cb_preview(sel, opts) end
+        if type(opts.cb_preview) == 'function' then
+          opts.cb_preview(sel, opts)
+        end
       end
     end, nil, opts.debug)
   end

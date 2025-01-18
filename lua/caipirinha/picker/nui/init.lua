@@ -2,8 +2,16 @@ local colorscheme = require 'caipirinha.colorscheme'
 local render = require 'caipirinha.picker.nui.render'
 local state = require 'caipirinha.picker.nui.state'
 
+--- nui picker integration for caipirinha.
+---
+---@module 'caipirinha.picker.nui'
+---
 local M = {}
 
+--- Uses nui to pick a colorscheme
+---
+---@param callback function
+---@param filter caipirinha.Options.filter
 function M.pick(callback, filter)
   local highlights = {
     CaipirinhaButton = { default = true, link = 'CursorLine' },

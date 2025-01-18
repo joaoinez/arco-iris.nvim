@@ -1,5 +1,10 @@
+local config = require 'caipirinha.config'
 local filesystem = require 'caipirinha.filesystem'
 
+--- All operations related to applying colorschemes.
+---
+---@module 'caipirinha.colorscheme'
+---
 local M = {}
 
 M.default_colorschemes = {
@@ -31,9 +36,45 @@ M.default_colorschemes = {
   'zellner',
 }
 
-function M.get_current_colorscheme()
+--- Starts up colorschemes
+---
+---@param options caipirinha.Options
+function M.start(options)
+  local path = filesystem.colorscheme_config_path
+
+  -- TODO: Abstract this
+  if not filesystem.file_exists(path) then
+    filesystem.write_file(
+      path,
+      vim.json.encode(config.default_colorscheme_config)
+    )
+  end
+
+  local colors_name = M._get_current_colorscheme()
+  local write = true
+
+  if options.random.enabled then
+    local random_colorscheme =
+      M.get_random_colorscheme(options.random.colorschemes)
+
+    colors_name = random_colorscheme
+    write = false
+  end
+
+  if options.auto_start == true then
+    M.apply_colorscheme(colors_name, write)
+    M.execute_callback(options.callback)
+  end
+end
+
+--- Returns current colorscheme
+---
+---@return string
+function M._get_current_colorscheme()
   if filesystem.file_exists(filesystem.colorscheme_config_path) then
-    return vim.json.decode(filesystem.read_file(filesystem.colorscheme_config_path)).colorscheme
+    return vim.json.decode(
+      filesystem.read_file(filesystem.colorscheme_config_path)
+    ).colorscheme
   elseif vim.g.colors_name then
     return vim.g.colors_name
   else
@@ -41,6 +82,10 @@ function M.get_current_colorscheme()
   end
 end
 
+--- Returns all colorschemes detected by neovim
+---
+---@param filter? caipirinha.Options.filter
+---@return string[]
 function M.get_installed_colorschemes(filter)
   if filter == nil then filter = {} end
 
@@ -66,8 +111,9 @@ function M.get_installed_colorschemes(filter)
   local lazy = package.loaded['lazy.core.util']
   if lazy and lazy.get_unloaded_rtp then
     local paths = lazy.get_unloaded_rtp ''
-    ---@diagnostic disable-next-line: param-type-mismatch
-    local all_files = vim.fn.globpath(table.concat(paths, ','), 'colors/*', 1, 1)
+    local all_files =
+      ---@diagnostic disable-next-line: param-type-mismatch
+      vim.fn.globpath(table.concat(paths, ','), 'colors/*', 1, 1)
     for _, f in ipairs(all_files) do
       table.insert(colors, vim.fn.fnamemodify(f, ':t:r'))
     end
@@ -84,6 +130,10 @@ function M.get_installed_colorschemes(filter)
   return colors
 end
 
+--- Returns a random colorscheme
+---
+---@param colorschemes string[]
+---@return string
 function M.get_random_colorscheme(colorschemes)
   math.randomseed(os.time())
   local random_colorscheme = colorschemes[math.random(#colorschemes)]
@@ -91,6 +141,10 @@ function M.get_random_colorscheme(colorschemes)
   return random_colorscheme
 end
 
+--- Applies provided colorscheme and optionally writes it to the config file
+---
+---@param colorscheme string
+---@param write boolean
 function M.apply_colorscheme(colorscheme, write)
   if write then filesystem.write_colorscheme(colorscheme) end
 
@@ -99,6 +153,9 @@ function M.apply_colorscheme(colorscheme, write)
   vim.cmd.colorscheme(colorscheme)
 end
 
+--- Executes provided callback function
+---
+---@param callback function
 function M.execute_callback(callback)
   if callback then callback(vim.g.colors_name) end
 end

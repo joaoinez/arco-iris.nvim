@@ -1,6 +1,15 @@
+--- telescope picker integration for caipirinha.
+---
+---@module 'caipirinha.picker.telescope'
+---
 local M = {}
 
--- From: https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
+-- NOTE: From https://github.com/brianhuster/live-preview.nvim/blob/main/lua/livepreview/picker.lua
+
+--- Uses telescope to pick a colorscheme
+---
+---@param callback function
+---@param filter caipirinha.Options.filter
 function M.pick(callback, filter)
   local pickers = require 'telescope.pickers'
   local finders = require 'telescope.finders'
