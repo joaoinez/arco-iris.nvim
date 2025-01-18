@@ -9,7 +9,7 @@ local M = {}
 --- Uses telescope to pick a colorscheme
 ---
 ---@param callback function
----@param filter caipirinha.Options.filter
+---@param filter? caipirinha.Options.filter
 function M.pick(callback, filter)
   local pickers = require 'telescope.pickers'
   local finders = require 'telescope.finders'

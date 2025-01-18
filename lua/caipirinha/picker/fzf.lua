@@ -9,7 +9,7 @@ local M = {}
 --- Uses fzf-lua to pick a colorscheme
 ---
 ---@param callback function
----@param filter caipirinha.Options.filter
+---@param filter? caipirinha.Options.filter
 function M.pick(callback, filter)
   local actions = require 'fzf-lua.actions'
   local colorschemes = require 'caipirinha.colorscheme'
@@ -37,9 +37,9 @@ function M.pick(callback, filter)
   opts = config.normalize_opts(opts, 'colorschemes')
   if not opts then return end
 
-  local current_colorscheme = colorschemes.get_current_colorscheme()
+  local current_colorscheme = colorschemes._get_current_colorscheme()
   local current_background = vim.o.background
-  local colors = colorschemes._get_installed_colorschemes(filter)
+  local colors = colorschemes.get_installed_colorschemes(filter)
 
   if type(opts.ignore_patterns) == 'table' then
     colors = vim.tbl_filter(function(x)

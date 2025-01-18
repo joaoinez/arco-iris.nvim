@@ -11,7 +11,7 @@ local M = {}
 --- Uses nui to pick a colorscheme
 ---
 ---@param callback function
----@param filter caipirinha.Options.filter
+---@param filter? caipirinha.Options.filter
 function M.pick(callback, filter)
   local highlights = {
     CaipirinhaButton = { default = true, link = 'CursorLine' },
@@ -27,7 +27,9 @@ function M.pick(callback, filter)
   state.callback = callback
   state.colors = colorscheme.get_installed_colorschemes(filter)
   state.filtered_colors = { unpack(state.colors) }
-  state.filter = filter
+  state.filter = filter or {
+    installed = 'all',
+  }
 
   render()
 end

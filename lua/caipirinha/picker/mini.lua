@@ -9,7 +9,7 @@ local M = {}
 --- Uses mini.pick to pick a colorscheme
 ---
 ---@param callback function
----@param filter caipirinha.Options.filter
+---@param filter? caipirinha.Options.filter
 function M.pick(callback, filter)
   local MiniPick = require 'mini.pick'
   local colorschemes = require 'caipirinha.colorscheme'
