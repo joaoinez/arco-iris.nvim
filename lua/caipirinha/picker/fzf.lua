@@ -39,7 +39,7 @@ function M.pick(callback, filter)
 
   local current_colorscheme = colorschemes.get_current_colorscheme()
   local current_background = vim.o.background
-  local colors = colorschemes.get_installed_colorschemes(filter)
+  local colors = colorschemes._get_installed_colorschemes(filter)
 
   if type(opts.ignore_patterns) == 'table' then
     colors = vim.tbl_filter(function(x)

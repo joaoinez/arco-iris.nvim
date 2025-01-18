@@ -75,10 +75,12 @@ function M.init(enter)
       close_window()
     end,
     on_change = function(item)
-      if item.colors_name ~= vim.g.colors_name then vim.cmd.colorscheme(item.colors_name) end
+      if item.colors_name ~= vim.g.colors_name then
+        vim.cmd.colorscheme(item.colors_name)
+      end
     end,
     on_close = function()
-      vim.cmd.colorscheme(colorscheme.get_current_colorscheme())
+      vim.cmd.colorscheme(colorscheme._get_current_colorscheme())
 
       vim.schedule(function() close_window() end)
     end,
@@ -90,9 +92,24 @@ function M.init(enter)
     vim.schedule(function() state.ui.input.init():mount() end)
   end, { noremap = true })
 
-  menu:map('n', '1', function() apply_filter { installed = 'all' } end, { noremap = true })
-  menu:map('n', '2', function() apply_filter { installed = 'user' } end, { noremap = true })
-  menu:map('n', '3', function() apply_filter { installed = 'default' } end, { noremap = true })
+  menu:map(
+    'n',
+    '1',
+    function() apply_filter { installed = 'all' } end,
+    { noremap = true }
+  )
+  menu:map(
+    'n',
+    '2',
+    function() apply_filter { installed = 'user' } end,
+    { noremap = true }
+  )
+  menu:map(
+    'n',
+    '3',
+    function() apply_filter { installed = 'default' } end,
+    { noremap = true }
+  )
 
   return menu
 end
