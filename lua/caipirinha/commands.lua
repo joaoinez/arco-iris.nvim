@@ -20,13 +20,15 @@ function M.runner(user_opts)
     local args = cmd_opts.fargs
 
     if args[1] == 'pick' then
-      picker.pick(args[2], function(color)
+      picker.pick(args[2] or 'nui', function(color)
         colorscheme.apply_colorscheme(color, true)
         colorscheme.execute_callback(user_opts.callback)
       end)
     elseif args[1] == 'apply' then
-      colorscheme.apply_colorscheme(args[2], true)
-      colorscheme.execute_callback(user_opts.callback)
+      if args[2] ~= nil then
+        colorscheme.apply_colorscheme(args[2], true)
+        colorscheme.execute_callback(user_opts.callback)
+      end
     elseif args[1] == 'get_current_colorscheme' then
       -- TODO: Replace this with notify
       vim.print(colorscheme._get_current_colorscheme())
