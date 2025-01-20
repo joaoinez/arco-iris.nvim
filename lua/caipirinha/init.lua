@@ -48,8 +48,8 @@ function M.apply_colorscheme(name, save)
 end
 
 ---@class picker.Options
----@field picker caipirinha.Options.picker
----@field filter caipirinha.Options.filter
+---@field picker? caipirinha.Options.picker
+---@field filter? caipirinha.Options.filter
 
 --- Calls provided picker to view and apply colorschemes
 ---
@@ -58,7 +58,7 @@ function M.pick_colorscheme(opts)
   if not is_configured() then return end
   if opts == nil then opts = {} end
 
-  picker.pick(opts.picker or M.options.picker, function(color)
+  picker.pick(opts.picker or M.options.picker or 'nui', function(color)
     colorscheme.apply_colorscheme(color, true)
     colorscheme.execute_callback(M.options.callback)
   end, opts.filter or M.options.filter)

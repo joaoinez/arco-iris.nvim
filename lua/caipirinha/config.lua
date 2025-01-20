@@ -5,16 +5,16 @@
 local M = {}
 
 ---@class caipirinha.Options
----@field auto_start boolean
----@field picker caipirinha.Options.picker
----@field filter caipirinha.Options.filter
----@field callback nil | fun(): nil
----@field random caipirinha.Options.random
+---@field auto_start? boolean
+---@field picker? caipirinha.Options.picker
+---@field filter? caipirinha.Options.filter
+---@field callback? fun(): nil
+---@field random? caipirinha.Options.random
 
 ---@alias caipirinha.Options.picker "nui" | 'fzf' | "telescope" | 'mini' | 'snacks'
 
 ---@class caipirinha.Options.filter
----@field installed 'all' | 'user' | 'default'
+---@field installed? 'all' | 'user' | 'default'
 
 ---@class caipirinha.Options.random
 ---@field enabled boolean

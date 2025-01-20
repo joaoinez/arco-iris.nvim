@@ -10,7 +10,7 @@ local M = {}
 
 --- Init function for nui layout
 ---
----@param enter boolean
+---@param enter? boolean
 ---@return NuiLayout
 function M.init(enter)
   if enter == nil then enter = true end
