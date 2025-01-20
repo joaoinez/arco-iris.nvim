@@ -1,9 +1,15 @@
----@diagnostic disable: undefined-field
-
 local state = require 'caipirinha.picker.nui.state'
+local ui = require 'caipirinha.picker.nui.ui'
 
+--- nui UI input.
+---
+---@module 'caipirinha.picker.nui.input'
+---
 local M = {}
 
+--- Init function for nui header
+---
+---@return NuiInput
 function M.init()
   local Input = require 'nui.input'
   local Layout = require 'nui.layout'
@@ -12,7 +18,7 @@ function M.init()
     zindex = 61,
     relative = {
       type = 'win',
-      winid = state.ui.container.win,
+      winid = ui.container.win,
     },
     position = {
       row = '99%',
@@ -34,11 +40,11 @@ function M.init()
   local input = Input(input_options, {
     prompt = '> ',
     on_close = function()
-      state.ui.layout.instance:update(
+      ui.layout.instance:update(
         nil,
         Layout.Box({
-          Layout.Box(state.ui.layout.menu.init(), { grow = 1 }),
-          Layout.Box(state.ui.layout.preview, { grow = 3 }),
+          Layout.Box(ui.menu.init(), { grow = 1 }),
+          Layout.Box(ui.preview.instance, { grow = 3 }),
         }, { dir = 'row', grow = 1 })
       )
     end,
@@ -50,11 +56,11 @@ function M.init()
         end
         state.filtered_colors = filtered_colors
 
-        state.ui.layout.instance:update(
+        ui.layout.instance:update(
           nil,
           Layout.Box({
-            Layout.Box(state.ui.layout.menu.init(false), { grow = 1 }),
-            Layout.Box(state.ui.layout.preview, { grow = 3 }),
+            Layout.Box(ui.menu.init(false), { grow = 1 }),
+            Layout.Box(ui.preview.instance, { grow = 3 }),
           }, { dir = 'row', grow = 1 })
         )
       end)
@@ -62,11 +68,11 @@ function M.init()
     on_submit = function()
       vim.schedule(
         function()
-          state.ui.layout.instance:update(
+          ui.layout.instance:update(
             nil,
             Layout.Box({
-              Layout.Box(state.ui.layout.menu.init(), { grow = 1 }),
-              Layout.Box(state.ui.layout.preview, { grow = 3 }),
+              Layout.Box(ui.menu.init(), { grow = 1 }),
+              Layout.Box(ui.preview.instance, { grow = 3 }),
             }, { dir = 'row', grow = 1 })
           )
         end
@@ -76,10 +82,7 @@ function M.init()
 
   input:map('n', '<Esc>', function() input:unmount() end, { noremap = true })
 
-  state.ui.input = {
-    instance = input,
-    init = M.init,
-  }
+  ui.input = { instance = input, init = M.init }
 
   return input
 end

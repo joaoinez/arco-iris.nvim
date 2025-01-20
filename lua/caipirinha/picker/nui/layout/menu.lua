@@ -1,23 +1,31 @@
----@diagnostic disable: undefined-field
-
 local colorscheme = require 'caipirinha.colorscheme'
 local state = require 'caipirinha.picker.nui.state'
+local ui = require 'caipirinha.picker.nui.ui'
 
+--- nui UI menu.
+---
+---@module 'caipirinha.picker.nui.layout.menu'
+---
 local M = {}
 
+--- Closes whole nui UI
+---
 local function close_window()
-  if state.ui.layout.instance then state.ui.layout.instance:unmount() end
-  if state.ui.header.instance then state.ui.header.instance:unmount() end
+  if ui.layout.instance then ui.layout.instance:unmount() end
+  if ui.header.instance then ui.header.instance:unmount() end
 
-  for _, tab in ipairs(state.ui.tabs) do
+  for _, tab in ipairs(ui.tabs) do
     tab.instance:unmount()
   end
 
-  state.ui.tabs = {}
+  ui.tabs = {}
 
-  vim.api.nvim_win_close(state.ui.container.win, true)
+  vim.api.nvim_win_close(ui.container.win, true)
 end
 
+--- Applies filter to menu list
+---
+---@param filter caipirinha.Options.filter
 local function apply_filter(filter)
   local Layout = require 'nui.layout'
 
@@ -26,27 +34,31 @@ local function apply_filter(filter)
   state.filtered_colors = { unpack(state.colors) }
 
   vim.schedule(function()
-    if state.ui.header.instance then state.ui.header.instance:unmount() end
+    if ui.header.instance then ui.header.instance:unmount() end
 
-    for _, tab in ipairs(state.ui.tabs) do
+    for _, tab in ipairs(ui.tabs) do
       tab.instance:unmount()
     end
 
-    state.ui.tabs = {}
+    ui.tabs = {}
 
     vim.schedule(function()
-      state.ui.header.init()
-      state.ui.layout.instance:update(
+      ui.header.init():mount()
+      ui.layout.instance:update(
         nil,
         Layout.Box({
-          Layout.Box(state.ui.layout.menu.init(), { grow = 1 }),
-          Layout.Box(state.ui.layout.preview, { grow = 3 }),
+          Layout.Box(ui.menu.init(), { grow = 1 }),
+          Layout.Box(ui.preview.instance, { grow = 3 }),
         }, { dir = 'row', grow = 1 })
       )
     end)
   end)
 end
 
+--- Init function for nui menu
+---
+---@param enter boolean
+---@return NuiMenu
 function M.init(enter)
   if enter == nil then enter = true end
 
@@ -87,9 +99,9 @@ function M.init(enter)
   })
 
   menu:map('n', '/', function()
-    if state.ui.input.instance then state.ui.input.instance:unmount() end
+    if ui.input.instance then ui.input.instance:unmount() end
 
-    vim.schedule(function() state.ui.input.init():mount() end)
+    vim.schedule(function() ui.input.init():mount() end)
   end, { noremap = true })
 
   menu:map(

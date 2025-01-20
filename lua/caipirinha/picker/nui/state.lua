@@ -1,9 +1,13 @@
+--- State object for nui UI.
+---
+---@module 'caipirinha.picker.nui.state'
+---
+
 ---@class caipirinha.nui.State
 ---@field callback function | nil
 ---@field colors string[]
 ---@field filtered_colors string[]
 ---@field filter caipirinha.Options.filter | nil
----@field ui table
 
 ---@type caipirinha.nui.State
 local M = {
@@ -11,9 +15,6 @@ local M = {
   colors = {},
   filtered_colors = {},
   filter = nil,
-  ui = {
-    tabs = {},
-  },
 }
 
 return M

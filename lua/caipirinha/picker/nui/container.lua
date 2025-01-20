@@ -1,7 +1,13 @@
-local state = require 'caipirinha.picker.nui.state'
+local ui = require 'caipirinha.picker.nui.ui'
 
+--- nui UI container.
+---
+---@module 'caipirinha.picker.nui.container'
+---
 local M = {}
 
+--- Init function for nui container
+---
 function M.init()
   local width = math.floor(vim.o.columns * 0.5)
   local buf = vim.api.nvim_create_buf(false, true)
@@ -17,7 +23,7 @@ function M.init()
     -- footer = 'keybinds',
   })
 
-  state.ui.container = { win = win, buf = buf }
+  ui.container = { win = win }
 end
 
 return M

@@ -1,11 +1,17 @@
----@diagnostic disable: undefined-field
-
 local menu = require 'caipirinha.picker.nui.layout.menu'
 local preview = require 'caipirinha.picker.nui.layout.preview'
-local state = require 'caipirinha.picker.nui.state'
+local ui = require 'caipirinha.picker.nui.ui'
 
+--- nui UI layout.
+---
+---@module 'caipirinha.picker.nui.layout'
+---
 local M = {}
 
+--- Init function for nui layout
+---
+---@param enter boolean
+---@return NuiLayout
 function M.init(enter)
   if enter == nil then enter = true end
 
@@ -17,7 +23,7 @@ function M.init(enter)
   local config = {
     relative = {
       type = 'win',
-      winid = state.ui.container.win,
+      winid = ui.container.win,
     },
     position = {
       row = 3,
@@ -37,15 +43,17 @@ function M.init(enter)
     }, { dir = 'row', grow = 1 })
   )
 
-  state.ui.layout = {
-    config = config,
+  ui.layout = {
     instance = layout,
     init = M.init,
-    menu = {
-      instance = menu_instance,
-      init = menu.init,
-    },
-    preview = preview_instance,
+  }
+  ui.menu = {
+    instance = menu_instance,
+    init = menu.init,
+  }
+  ui.preview = {
+    instance = preview_instance,
+    init = preview.init,
   }
 
   return layout

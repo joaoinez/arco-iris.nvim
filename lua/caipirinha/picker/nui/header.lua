@@ -1,19 +1,33 @@
----@diagnostic disable: undefined-field
-
 local state = require 'caipirinha.picker.nui.state'
+local ui = require 'caipirinha.picker.nui.ui'
 
+--- nui UI header.
+---
+---@module 'caipirinha.picker.nui.header'
+---
 local M = {}
 
-local function get_button_hl(on) return on and 'CaipirinhaButtonActive' or 'CaipirinhaButton' end
+--- Gets button's highlight groups based on provided state
+---
+---@param on boolean
+---@return 'CaipirinhaButtonActive' | 'CaipirinhaButton'
+local function get_button_hl(on)
+  return on and 'CaipirinhaButtonActive' or 'CaipirinhaButton'
+end
 
+--- Creates header filter tab
+---
+---@param text string
+---@param keybind string
+---@param active boolean
 local function create_tab(text, keybind, active)
   local Popup = require 'nui.popup'
   local NuiText = require 'nui.text'
   local NuiLine = require 'nui.line'
 
   local col = 2
-  if #state.ui.tabs > 0 then
-    for _, tab in ipairs(state.ui.tabs) do
+  if #ui.tabs > 0 then
+    for _, tab in ipairs(ui.tabs) do
       col = col + vim.api.nvim_win_get_config(tab.instance.winid).width + 2
     end
   end
@@ -25,7 +39,7 @@ local function create_tab(text, keybind, active)
     border = 'none',
     relative = {
       type = 'win',
-      winid = state.ui.header.instance.winid,
+      winid = ui.header.instance.winid,
     },
     position = {
       row = 0,
@@ -51,13 +65,12 @@ local function create_tab(text, keybind, active)
 
   line:render(tab.bufnr, -1, 1)
 
-  local tabs = { unpack(state.ui.tabs) }
-
-  table.insert(tabs, #tabs + 1, { id = text:lower(), instance = tab, active = active })
-
-  state.ui.tabs = tabs
+  table.insert(ui.tabs, { id = text:lower(), instance = tab, active = active })
 end
 
+--- Init function for nui header
+---
+---@return NuiPopup
 function M.init()
   local Popup = require 'nui.popup'
 
@@ -68,7 +81,7 @@ function M.init()
     border = 'none',
     relative = {
       type = 'win',
-      winid = state.ui.container.win,
+      winid = ui.container.win,
     },
     position = {
       row = 1,
@@ -80,16 +93,16 @@ function M.init()
     },
   }
 
-  state.ui.header = {
-    instance = header,
-    init = M.init,
-  }
+  ui.header = { instance = header, init = M.init }
+  ui.tabs = {}
 
-  header:mount()
+  vim.schedule(function()
+    create_tab('All', '1', state.filter.installed == 'all')
+    create_tab('User', '2', state.filter.installed == 'user')
+    create_tab('Default', '3', state.filter.installed == 'default')
+  end)
 
-  create_tab('All', '1', state.filter.installed == 'all')
-  create_tab('User', '2', state.filter.installed == 'user')
-  create_tab('Default', '3', state.filter.installed == 'default')
+  return header
 end
 
 return M
