@@ -1,70 +1,51 @@
-# plugin-template.nvim
+# 🍹 `caipirinha.nvim`
 
-[![Integration][integration-badge]][integration-runs]
+A blazingly fast and effortless colorscheme manager
 
-A template to create Neovim plugins written in [Lua][lua].
+## ✨ Features
 
-## Using
+- Persistant colorscheme selection with live preview
+- Popular picker integrations (fzf-lua, telescope, mini.pick, snacks.picker)
 
-Clone/download it locally and change the references to `my_awesome_plugin`,
-`my_cool_module` accordingly to your new plugin name. Don't forget to edit the
-[help][help] file accordingly.
+## ⚡️ Requirements
 
-You'll need to install [Lua][lua] and [LuaRocks][luarocks] to run the linter.
+> [!WARNING]
+> Requires `Neovim >= 0.10`
 
-## Testing
+- for icons support:
+  - [mini.icons](https://github.com/echasnovski/mini.icons) _(optional)_
+  - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) _(optional)_
+  - a [Nerd Font](https://www.nerdfonts.com/) _(optional)_
+- at least one of these for the picker:
+  - nui _(optional)_
+  - fzf-lua _(optional)_
+  - telescope _(optional)_
+  - mini.pick _(optional)_
+  - snacks.picker _(optional)_
 
-This uses [busted][busted], [luassert][luassert] (both through
-[plenary.nvim][plenary]) and [matcher_combinators][matcher_combinators] to
-define tests in `test/spec/` directory. These dependencies are required only to
-run tests, that's why they are installed as git submodules.
+## 📦 Installation
 
-Make sure your shell is in the `./test` directory or, if it is in the root directory,
-replace `make` by `make -C ./test` in the commands below.
+Install the plugin with your package manager:
 
-To init the dependencies run
+### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-```bash
-make prepare
+```lua
+{
+  'joaoinez/caipirinha.nvim',
+  priority = 1001,
+  lazy = false,
+  --@type caipirinha.Options
+  opts = {}
+}
 ```
 
-To run all tests just execute
+## ⚙️ Configuration
 
-```bash
-make test
-```
+WIP
 
-If you have [entr(1)][entr] installed you may use it to run all tests whenever a
-file is changed using:
+## 🚀 Usage
 
-```bash
-make watch
-```
-
-In both commands you myght specify a single spec to test/watch using:
-
-```bash
-make test SPEC=spec/my_awesome_plugin/my_cool_module_spec.lua
-make watch SPEC=spec/my_awesome_plugin/my_cool_module_spec.lua
-```
-
-## Github actions
-
-An Action will run all the tests and the linter on every commit on the main
-branch and also on Pull Request. Tests will be run using
-[stable and nightly][neovim-test-versions] versions of Neovim.
-
-[lua]: https://www.lua.org/
-[entr]: https://eradman.com/entrproject/
-[luarocks]: https://luarocks.org/
-[busted]: https://olivinelabs.com/busted/
-[luassert]: https://github.com/Olivine-Labs/luassert
-[plenary]: https://github.com/nvim-lua/plenary.nvim
-[matcher_combinators]: https://github.com/m00qek/matcher_combinators.lua
-[integration-badge]: https://github.com/m00qek/plugin-template.nvim/actions/workflows/integration.yml/badge.svg
-[integration-runs]: https://github.com/m00qek/plugin-template.nvim/actions/workflows/integration.yml
-[neovim-test-versions]: .github/workflows/integration.yml#L17
-[help]: doc/my-awesome-plugin.txt
+WIP
 
 ## Roadmap
 
@@ -79,12 +60,26 @@ branch and also on Pull Request. Tests will be run using
 - [x] Robust user commands
 - [ ] README / Documentation
 - [x] Types / docstrings
+- [ ] Better filtering, like dark/light themes, etc
+- [ ] Remote colorschemes
+- [ ] Merge local, remote and url colorschemes
+- [ ] Multiple selection
 - [ ] Pickers' options
 - [ ] Tests
-- [ ] Multiple selection
 - [ ] Favourite colorschemes
 - [ ] Project specific colorschemes
 - [ ] VimResized handling
-- [ ] Remote colorschemes
-- [ ] Better filtering, like dark/light themes, etc
 - [ ] Add colorscheme from url
+- [ ] Add vim events so users can listen to them
+
+## Alternatives
+
+WIP
+
+<a href="https://star-history.com/#joaoinez/caipirinha.nvim&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date&theme=dark"/>
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date"/>
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date"/>
+  </picture>
+</a>
