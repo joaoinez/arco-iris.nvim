@@ -78,7 +78,7 @@ branch and also on Pull Request. Tests will be run using
 - [x] Random colorscheme on startup
 - [x] Robust user commands
 - [ ] README / Documentation
-- [ ] Types / docstrings
+- [x] Types / docstrings
 - [ ] Pickers' options
 - [ ] Tests
 - [ ] Multiple selection
