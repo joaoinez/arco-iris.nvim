@@ -75,11 +75,3 @@ WIP
 ## Alternatives
 
 WIP
-
-<a href="https://star-history.com/#joaoinez/caipirinha.nvim&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date&theme=dark"/>
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date"/>
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=joaoinez/caipirinha.nvim&type=Date"/>
-  </picture>
-</a>
