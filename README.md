@@ -60,8 +60,8 @@ WIP
 - [x] Robust user commands
 - [ ] README / Documentation
 - [x] Types / docstrings
-- [ ] Better filtering, like dark/light themes, etc
 - [ ] Remote colorschemes
+- [ ] Better filtering, like dark/light themes, etc
 - [ ] Merge local, remote and url colorschemes
 - [ ] Multiple selection
 - [ ] Pickers' options
