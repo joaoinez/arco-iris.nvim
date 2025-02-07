@@ -1,4 +1,5 @@
 local colorscheme = require 'caipirinha.colorscheme'
+local filesystem = require 'caipirinha.filesystem'
 local state = require 'caipirinha.picker.nui.state'
 local ui = require 'caipirinha.picker.nui.ui'
 
@@ -30,7 +31,43 @@ local function apply_filter(filter)
   local Layout = require 'nui.layout'
 
   state.filter = filter
-  state.colors = colorscheme.get_installed_colorschemes(state.filter)
+  if filter.installed == 'remote' then
+    local colorschemes_data = vim.json.decode(
+      filesystem.read_file(
+        vim.fn.stdpath 'data' .. '/lazy/caipirinha.nvim/colorschemes.json'
+      )
+    )
+
+    local colors = {}
+    for _, color_data in pairs(colorschemes_data) do
+      if color_data.colorschemes then
+        for _, colorscheme_data in ipairs(color_data.colorschemes) do
+          if type(colorscheme_data) == 'table' then
+            table.insert(colors, {
+              disp_name = colorschemes_data.disp_name or colorschemes_data.name,
+              name = colorschemes_data.name,
+            })
+          elseif type(colorscheme_data) == 'string' then
+            table.insert(
+              colors,
+              {
+                disp_name = color_data.disp_name or colorschemes_data,
+                name = colorschemes_data,
+              }
+            )
+          end
+        end
+      else
+        table.insert(colors, color_data)
+      end
+    end
+
+    -- table.sort(colors)
+
+    state.colors = colors
+  else
+    state.colors = colorscheme.get_installed_colorschemes(state.filter)
+  end
   state.filtered_colors = { unpack(state.colors) }
 
   vim.schedule(function()
@@ -66,7 +103,15 @@ function M.init(enter)
 
   local items = {}
   for _, color in ipairs(state.filtered_colors) do
-    local item = Menu.item(' ' .. color, { colors_name = color })
+    local item = nil
+    if type(color) == 'table' then
+      item = Menu.item(
+        ' ' .. (color.disp_name or 'nil'),
+        { colors_name = color.disp_name }
+      )
+    else
+      item = Menu.item(' ' .. color, { colors_name = color })
+    end
     table.insert(items, item)
   end
 
@@ -92,9 +137,10 @@ function M.init(enter)
       end
     end,
     on_close = function()
-      vim.cmd.colorscheme(colorscheme._get_current_colorscheme())
-
-      vim.schedule(function() close_window() end)
+      vim.schedule(function()
+        close_window()
+        vim.cmd.colorscheme(colorscheme._get_current_colorscheme())
+      end)
     end,
   })
 
@@ -120,6 +166,12 @@ function M.init(enter)
     'n',
     '3',
     function() apply_filter { installed = 'default' } end,
+    { noremap = true }
+  )
+  menu:map(
+    'n',
+    '4',
+    function() apply_filter { installed = 'remote' } end,
     { noremap = true }
   )
 

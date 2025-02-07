@@ -14,7 +14,7 @@ local M = {}
 ---@alias caipirinha.Options.picker "nui" | 'fzf' | "telescope" | 'mini' | 'snacks'
 
 ---@class caipirinha.Options.filter
----@field installed? 'all' | 'user' | 'default'
+---@field installed? "all" | "user" | "default" | "remote"
 
 ---@class caipirinha.Options.random
 ---@field enabled boolean

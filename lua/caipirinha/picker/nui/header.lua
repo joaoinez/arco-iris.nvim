@@ -100,6 +100,7 @@ function M.init()
     create_tab('All', '1', state.filter.installed == 'all')
     create_tab('User', '2', state.filter.installed == 'user')
     create_tab('Default', '3', state.filter.installed == 'default')
+    create_tab('Remote', '4', state.filter.installed == 'remote')
   end)
 
   return header

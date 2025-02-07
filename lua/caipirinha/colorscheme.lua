@@ -160,4 +160,6 @@ function M.execute_callback(callback)
   if callback then callback(vim.g.colors_name) end
 end
 
+function M.get_remote_colorschemes() end
+
 return M

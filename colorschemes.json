@@ -1,0 +1,341 @@
+{
+  "kanagawa.nvim": {
+    "disp_name": "Kanagawa",
+    "url": "rebelot/kanagawa.nvim",
+    "colorschemes": [
+      "kanagawa",
+      {
+        "name": "kanagawa-wave",
+        "disp_name": "Kanagawa Wave"
+      },
+      {
+        "name": "kanagawa-dragon",
+        "disp_name": "Kanagawa Dragon"
+      },
+      {
+        "name": "kanagawa-lotus",
+        "disp_name": "Kanagawa Lotus"
+      }
+    ]
+  },
+  "tokyonight.nvim": {
+    "disp_name": "Tokyo Night",
+    "url": "folke/tokyonight.nvim",
+    "colorschemes": [
+      "tokyonight",
+      {
+        "name": "tokyonight-night",
+        "disp_name": "Tokyo Night"
+      },
+      {
+        "name": "tokyonight-storm",
+        "disp_name": "Tokyo Storm"
+      },
+      {
+        "name": "tokyonight-day",
+        "disp_name": "Tokyo Day"
+      },
+      {
+        "name": "tokyonight-moon",
+        "disp_name": "Tokyo Moon"
+      }
+    ]
+  },
+  "catppuccin.nvim": {
+    "disp_name": "Catppuccin",
+    "url": "catppuccin/nvim",
+    "colorschemes": [
+      "catppuccin",
+      {
+        "name": "catppuccin-latte",
+        "disp_name": "Catppuccin Latte"
+      },
+      {
+        "name": "catppuccin-frappe",
+        "disp_name": "Catppuccin Frappe"
+      },
+      {
+        "name": "catppuccin-macchiato",
+        "disp_name": "Catppuccin Macchiato"
+      },
+      {
+        "name": "catppuccin-mocha",
+        "disp_name": "Catppuccin Mocha"
+      }
+    ]
+  },
+  "neovim-ayu": {
+    "disp_name": "Neovim Ayu",
+    "url": "Shatur/neovim-ayu",
+    "colorschemes": [
+      {
+        "disp_name": "Ayu Dark",
+        "lua": "require('ayu').setup({mirage = false}); vim.cmd.colorscheme('ayu')"
+      },
+      {
+        "disp_name": "Ayu Mirage",
+        "lua": "require('ayu').setup({mirage = true}); vim.cmd.colorscheme('ayu')"
+      }
+    ]
+  },
+  "rose-pine.nvim": {
+    "disp_name": "Rose Pine",
+    "url": "rose-pine/neovim",
+    "colorschemes": [
+      "rose-pine-main",
+      {
+        "name": "rose-pine-moon",
+        "disp_name": "Rose Pine Moon"
+      },
+      {
+        "name": "rose-pine-dawn",
+        "disp_name": "Rose Pine Dawn"
+      }
+    ]
+  },
+  "onedark.nvim": {
+    "disp_name": "OneDark.nvim",
+    "url": "navarasu/onedark.nvim",
+    "colorschemes": [
+      {
+        "lua": "require('onedark').setup({style='dark'}); vim.cmd.colorscheme('onedark')"
+      },
+      {
+        "disp_name": "OneDark Darker",
+        "lua": "require('onedark').setup({style='darker'}); vim.cmd.colorscheme('onedark')"
+      },
+      {
+        "disp_name": "OneDark Cool",
+        "lua": "require('onedark').setup({style='cool'}); vim.cmd.colorscheme('onedark')"
+      },
+      {
+        "disp_name": "OneDark Deep",
+        "lua": "require('onedark').setup({style='deep'}); vim.cmd.colorscheme('onedark')"
+      },
+      {
+        "disp_name": "OneDark Warm",
+        "lua": "require('onedark').setup({style='warm'}); vim.cmd.colorscheme('onedark')"
+      },
+      {
+        "disp_name": "OneDark Warmer",
+        "lua": "require('onedark').setup({style='warmer'}); vim.cmd.colorscheme('onedark')"
+      }
+    ]
+  },
+  "onedarkpro.nvim": {
+    "disp_name": "OneDarkPro",
+    "url": "olimorris/onedarkpro.nvim",
+    "colorschemes": [
+      "onedark",
+      {
+        "name": "onelight",
+        "disp_name": "OneDarkPro Light"
+      },
+      {
+        "name": "onedark_vivid",
+        "disp_name": "OneDarkPro Vidid"
+      },
+      {
+        "name": "onedark_dark",
+        "disp_name": "OneDarkPro Dark"
+      }
+    ]
+  },
+  "github-nvim-theme": {
+    "disp_name": "Github",
+    "url": "projekt0n/github-nvim-theme",
+    "colorschemes": [
+      "github_dark",
+      {
+        "name": "github_dark_default",
+        "disp_name": "Github Dark Default"
+      },
+      {
+        "name": "github_dark_dimmed",
+        "disp_name": "Github Dark Dimmed"
+      },
+      {
+        "name": "github_dark_high_contrast",
+        "disp_name": "Github Dark High Contrast"
+      },
+      {
+        "name": "github_dark_colorblind",
+        "disp_name": "Github Dark Colorblind"
+      },
+      {
+        "name": "github_dark_tritanopia",
+        "disp_name": "Github Dark Tritanopia"
+      },
+      {
+        "name": "github_light_default",
+        "disp_name": "Github Light Default"
+      },
+      {
+        "name": "github_light_high_contrast",
+        "disp_name": "Github Dark High Contrast"
+      },
+      {
+        "name": "github_light_colorblind",
+        "disp_name": "Github Light Colorblind"
+      },
+      {
+        "name": "github_light_tritanopia",
+        "disp_name": "Github Light Tritanopia"
+      }
+    ]
+  },
+  "vscode.nvim": {
+    "disp_name": "VSCode",
+    "url": "Mofiqul/vscode.nvim",
+    "colorschemes": [
+      "vscode"
+    ]
+  },
+  "dracula.nvim": {
+    "disp_name": "Dracula",
+    "url": "Mofiqul/dracula.nvim",
+    "colorschemes": [
+      "dracula"
+    ]
+  },
+  "oxocarbon.nvim": {
+    "disp_name": "Oxocarbon",
+    "url": "nyoom-engineering/oxocarbon.nvim",
+    "colorschemes": [
+      "oxocarbon"
+    ]
+  },
+  "material.nvim": {
+    "disp_name": "Material",
+    "url": "marko-cerovac/material.nvim",
+    "colorschemes": [
+      "material",
+      {
+        "disp_name": "Material Oceanic",
+        "vim": "let g:material_style='oceanic' | colorscheme material"
+      },
+      {
+        "disp_name": "Material Deep Ocean",
+        "lua": "vim.g.material_style='deep ocean'; vim.cmd.colorscheme('material')"
+      },
+      {
+        "disp_name": "Material Pale Night",
+        "lua": "vim.g.material_style='palenight'; vim.cmd.colorscheme('material')"
+      },
+      {
+        "disp_name": "Material Lighter",
+        "lua": "vim.g.material_style='lighter'; vim.cmd.colorscheme('material')"
+      },
+      {
+        "disp_name": "Material Darker",
+        "lua": "vim.g.material_style='darker'; vim.cmd.colorscheme('material')"
+      }
+    ]
+  },
+  "gruvbox-nvim": {
+    "disp_name": "Gruvbox.nvim",
+    "url": "ellisonleao/gruvbox.nvim",
+    "colorschemes": [
+      {
+        "disp_name": "Gruvbox Nvim Dark",
+        "lua": "vim.o.background = 'dark'; vim.cmd.colorscheme('gruvbox')"
+      },
+      {
+        "disp_name": "Gruvbox Nvim Light",
+        "lua": "vim.o.background = 'light'; vim.cmd.colorscheme('gruvbox')"
+      }
+    ]
+  },
+  "gruvbox-material": {
+    "disp_name": "Gruvbox Material",
+    "url": "sainnhe/gruvbox-material",
+    "colorschemes": [
+      "gruvbox-material"
+    ]
+  },
+  "sonokai": {
+    "disp_name": "Sonokai",
+    "url": "sainnhe/sonokai",
+    "colorschemes": [
+      {
+        "lua": "vim.g.sonokai_style='default'; vim.cmd.colorscheme('sonokai')"
+      },
+      {
+        "disp_name": "Sonokai Atlandis",
+        "lua": "vim.g.sonokai_style='atlandis'; vim.cmd.colorscheme('sonokai')"
+      },
+      {
+        "disp_name": "Sonokai Andromeda",
+        "lua": "vim.g.sonokai_style='andromeda'; vim.cmd.colorscheme('sonokai')"
+      },
+      {
+        "disp_name": "Sonokai Shusia",
+        "lua": "vim.g.sonokai_style='shusia'; vim.cmd.colorscheme('sonokai')"
+      },
+      {
+        "disp_name": "Sonokai Maia",
+        "lua": "vim.g.sonokai_style='maia'; vim.cmd.colorscheme('sonokai')"
+      },
+      {
+        "disp_name": "Sonokai Espresso",
+        "lua": "vim.g.sonokai_style='espresso'; vim.cmd.colorscheme('sonokai')"
+      }
+    ]
+  },
+  "nord.nvim": {
+    "disp_name": "Nord",
+    "url": "shaunsingh/nord.nvim",
+    "colorschemes": [
+      "nord"
+    ]
+  },
+  "nordic.nvim": {
+    "disp_name": "Nordic",
+    "url": "AlexvZyl/nordic.nvim",
+    "colorschemes": [
+      "nordic"
+    ]
+  },
+  "solarized-osaka.nvim": {
+    "disp_name": "Solarized Osaka",
+    "url": "craftzdog/solarized-osaka.nvim",
+    "colorschemes": [
+      "solarized-osaka"
+    ]
+  },
+  "melange-nvim": {
+    "disp_name": "Melange",
+    "url": "savq/melange-nvim",
+    "colorschemes": [
+      "melange"
+    ]
+  },
+  "tokyodark.nvim": {
+    "disp_name": "Tokyodark",
+    "url": "tiagovla/tokyodark.nvim",
+    "colorschemes": [
+      "tokyodark"
+    ]
+  },
+  "night-owl.nvim": {
+    "disp_name": "Nightowl",
+    "url": "oxfist/night-owl.nvim",
+    "colorschemes": [
+      "night-owl"
+    ]
+  },
+  "poimandres.nvim": {
+    "disp_name": "Poimandres",
+    "url": "olivercederborg/poimandres.nvim",
+    "colorschemes": [
+      "poimandres"
+    ]
+  },
+  "cyberdream.nvim": {
+    "disp_name": "Cyberdream",
+    "url": "scottmckendry/cyberdream.nvim",
+    "colorschemes": [
+      "cyberdream"
+    ]
+  }
+}
