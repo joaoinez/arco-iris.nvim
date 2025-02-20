@@ -1,15 +1,15 @@
-local colorscheme = require 'caipirinha.colorscheme'
-local picker = require 'caipirinha.picker'
+local colorscheme = require 'arco-iris.colorscheme'
+local picker = require 'arco-iris.picker'
 
---- Utilities to parse and run `Caipirinha` user command.
+--- Utilities to parse and run `ArcoIris` user command.
 ---
----@module 'caipirinha.commands'
+---@module 'arco-iris.commands'
 ---
 local M = {}
 
 --- Command runner with user options
 ---
----@param user_opts caipirinha.Options
+---@param user_opts arco-iris.Options
 ---@return fun(cmd_opts: command.Options): nil
 function M.runner(user_opts)
   ---@class command.Options

@@ -1,9 +1,9 @@
 --- UI state object for nui UI.
 ---
----@module 'caipirinha.picker.nui.ui'
+---@module 'arco-iris.picker.nui.ui'
 ---
 
----@class caipirinha.nui.UI
+---@class arco-iris.nui.UI
 ---@field container {win: integer} | nil
 ---@field header {instance: NuiPopup, init: fun(): NuiPopup} | nil
 ---@field tabs {instance: NuiPopup, init: fun(): NuiPopup}[] | nil

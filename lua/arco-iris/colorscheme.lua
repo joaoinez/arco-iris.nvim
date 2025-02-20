@@ -1,9 +1,9 @@
-local config = require 'caipirinha.config'
-local filesystem = require 'caipirinha.filesystem'
+local config = require 'arco-iris.config'
+local filesystem = require 'arco-iris.filesystem'
 
 --- All operations related to applying colorschemes.
 ---
----@module 'caipirinha.colorscheme'
+---@module 'arco-iris.colorscheme'
 ---
 local M = {}
 
@@ -39,7 +39,7 @@ M.default_colorschemes = {
 
 --- Starts up colorschemes
 ---
----@param options caipirinha.Options
+---@param options arco-iris.Options
 function M.start(options)
   local path = filesystem.colorscheme_config_path
 
@@ -85,7 +85,7 @@ end
 
 --- Returns all colorschemes detected by neovim
 ---
----@param filter? caipirinha.Options.filter
+---@param filter? arco-iris.Options.filter
 ---@return string[]
 function M.get_installed_colorschemes(filter)
   if filter == nil then filter = {} end

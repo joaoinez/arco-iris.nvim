@@ -1,26 +1,26 @@
---- All functions and data to help customize `caipirinha` for this user.
+--- All functions and data to help customize `arco-iris` for this user.
 ---
----@module 'caipirinha.config'
+---@module 'arco-iris.config'
 ---
 local M = {}
 
----@class caipirinha.Options
+---@class arco-iris.Options
 ---@field auto_start? boolean
----@field picker? caipirinha.Options.picker
----@field filter? caipirinha.Options.filter
+---@field picker? arco-iris.Options.picker
+---@field filter? arco-iris.Options.filter
 ---@field callback? fun(): nil
----@field random? caipirinha.Options.random
+---@field random? arco-iris.Options.random
 
----@alias caipirinha.Options.picker "nui" | 'fzf' | "telescope" | 'mini' | 'snacks'
+---@alias arco-iris.Options.picker "nui" | 'fzf' | "telescope" | 'mini' | 'snacks'
 
----@class caipirinha.Options.filter
+---@class arco-iris.Options.filter
 ---@field installed? 'all' | 'user' | 'default'
 
----@class caipirinha.Options.random
+---@class arco-iris.Options.random
 ---@field enabled boolean
 ---@field colorschemes string[]
 
----@type caipirinha.Options
+---@type arco-iris.Options
 local defaults = {
   auto_start = true,
   picker = 'nui',
@@ -36,8 +36,8 @@ local defaults = {
 
 --- Applies user options
 ---
----@param options? caipirinha.Options
----@return caipirinha.Options
+---@param options? arco-iris.Options
+---@return arco-iris.Options
 function M.with_defaults(options)
   return vim.tbl_deep_extend('force', defaults, options or {})
 end

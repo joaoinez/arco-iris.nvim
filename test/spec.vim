@@ -8,5 +8,5 @@ lua require('plenary.busted')
 lua require('matcher_combinators.luassert')
 
 " configuring the plugin
-runtime plugin/caipirinha.lua
-lua require('caipirinha').setup({ name = 'Jane Doe' })
+runtime plugin/arco-iris.lua
+lua require('arco-iris').setup({ name = 'Jane Doe' })

@@ -1,10 +1,10 @@
-local colorscheme = require 'caipirinha.colorscheme'
-local state = require 'caipirinha.picker.nui.state'
-local ui = require 'caipirinha.picker.nui.ui'
+local colorscheme = require 'arco-iris.colorscheme'
+local state = require 'arco-iris.picker.nui.state'
+local ui = require 'arco-iris.picker.nui.ui'
 
 --- nui UI menu.
 ---
----@module 'caipirinha.picker.nui.layout.menu'
+---@module 'arco-iris.picker.nui.layout.menu'
 ---
 local M = {}
 
@@ -25,7 +25,7 @@ end
 
 --- Applies filter to menu list
 ---
----@param filter caipirinha.Options.filter
+---@param filter arco-iris.Options.filter
 local function apply_filter(filter)
   local Layout = require 'nui.layout'
 

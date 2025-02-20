@@ -1,13 +1,13 @@
---- snacks.picker picker integration for caipirinha.
+--- snacks.picker picker integration for arco-iris.
 ---
----@module 'caipirinha.picker.snacks'
+---@module 'arco-iris.picker.snacks'
 ---
 local M = {}
 
 --- Uses snacks.picker to pick a colorscheme
 ---
 ---@param callback function
----@param _? caipirinha.Options.filter
+---@param _? arco-iris.Options.filter
 function M.pick(callback, _)
   local snacks = require('snacks').picker
 

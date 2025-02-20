@@ -1,18 +1,18 @@
 TODO
-*caipirinha.txt*  An awesome plugin that greets you :)
+*arco-iris.txt*  An awesome plugin that greets you :)
 
 ==============================================================================
-CONTENTS                                          *caipirinha-contents*
+CONTENTS                                          *arco-iris-contents*
 
-    1. Introduction ......................... |caipirinha-introduction|
-    2. Setup ................................ |caipirinha-setup|
-    3. Commands ............................. |caipirinha-commands|
-    4. API .................................. |caipirinha-api|
+    1. Introduction ......................... |arco-iris-introduction|
+    2. Setup ................................ |arco-iris-setup|
+    3. Commands ............................. |arco-iris-commands|
+    4. API .................................. |arco-iris-api|
 
 ==============================================================================
-1. INTRODUCTION                               *caipirinha-introduction*
+1. INTRODUCTION                               *arco-iris-introduction*
 
-caipirinha makes Neovim, your favorite text editor, capable of greeting
+arco-iris makes Neovim, your favorite text editor, capable of greeting
 you. See bellow how it works:
 
                 +--------------+              +--------------+
@@ -25,22 +25,22 @@ you. See bellow how it works:
                 +--------------+              +--------------+
 
 ==============================================================================
-2. SETUP                                             *caipirinha-setup*
+2. SETUP                                             *arco-iris-setup*
 
 Make sure to add to call the setup function with the proper configuration on
 your `init` file.
 
 If you use `init.vim`: >
 
-    lua require('caipirinha').setup { name = 'Alexander, The Great'}
+    lua require('arco-iris').setup { name = 'Alexander, The Great'}
 
 
 Or, if you use `init.lua`: >
 
-    require('caipirinha').setup { name = 'Alexander, The Great'}
+    require('arco-iris').setup { name = 'Alexander, The Great'}
 
 ==============================================================================
-3. COMMANDS                                       *caipirinha-commands*
+3. COMMANDS                                       *arco-iris-commands*
 
 :MyAwesomePluginGenericGreet                     *MyAwesomePluginGenericGreet*
 
@@ -51,10 +51,10 @@ Shows a generic greet message.
 Shows a personalized, accordingly to the setup configuration, greet message.
 
 ==============================================================================
-4. API                                                 *caipirinha-api*
+4. API                                                 *arco-iris-api*
 
 
-caipirinha.setup({config})                  *caipirinha.setup()*
+arco-iris.setup({config})                  *arco-iris.setup()*
         Configures this plugin. Currently supported configuration variables
         are:
         • `name`: a string to be used in the greet message
@@ -63,16 +63,16 @@ caipirinha.setup({config})                  *caipirinha.setup()*
             {config}(required, table) Table of values; keys are as listed
                 above. Accept defaults by omitting the relevant key.
 
-caipirinha.is_configured()          *caipirinha.is_configured()*
+arco-iris.is_configured()          *arco-iris.is_configured()*
         Tell if the plugin is configured.
         Return: ~
             true/false
 
-caipirinha.greet()                          *caipirinha.greet()*
+arco-iris.greet()                          *arco-iris.greet()*
         Show a greeting message. If the plugin was previously configured with
-        |caipirinha.setup()|, show a personalized message.
+        |arco-iris.setup()|, show a personalized message.
 
-caipirinha.generic_greet()          *caipirinha.generic_greet()*
+arco-iris.generic_greet()          *arco-iris.generic_greet()*
         Show a generic greeting message.
 
 ==============================================================================

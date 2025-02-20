@@ -1,10 +1,10 @@
-local menu = require 'caipirinha.picker.nui.layout.menu'
-local preview = require 'caipirinha.picker.nui.layout.preview'
-local ui = require 'caipirinha.picker.nui.ui'
+local menu = require 'arco-iris.picker.nui.layout.menu'
+local preview = require 'arco-iris.picker.nui.layout.preview'
+local ui = require 'arco-iris.picker.nui.ui'
 
 --- nui UI layout.
 ---
----@module 'caipirinha.picker.nui.layout'
+---@module 'arco-iris.picker.nui.layout'
 ---
 local M = {}
 

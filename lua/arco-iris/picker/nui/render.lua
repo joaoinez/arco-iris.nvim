@@ -1,11 +1,11 @@
-local container = require 'caipirinha.picker.nui.container'
-local header = require 'caipirinha.picker.nui.header'
-local input = require 'caipirinha.picker.nui.input'
-local layout = require 'caipirinha.picker.nui.layout'
+local container = require 'arco-iris.picker.nui.container'
+local header = require 'arco-iris.picker.nui.header'
+local input = require 'arco-iris.picker.nui.input'
+local layout = require 'arco-iris.picker.nui.layout'
 
 --- Main render module for nui UI.
 ---
----@module 'caipirinha.picker.nui.render'
+---@module 'arco-iris.picker.nui.render'
 ---
 local M = {}
 

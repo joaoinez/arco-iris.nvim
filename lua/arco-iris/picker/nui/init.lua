@@ -1,22 +1,22 @@
-local colorscheme = require 'caipirinha.colorscheme'
-local render = require 'caipirinha.picker.nui.render'
-local state = require 'caipirinha.picker.nui.state'
+local colorscheme = require 'arco-iris.colorscheme'
+local render = require 'arco-iris.picker.nui.render'
+local state = require 'arco-iris.picker.nui.state'
 
---- nui picker integration for caipirinha.
+--- nui picker integration for arco-iris.
 ---
----@module 'caipirinha.picker.nui'
+---@module 'arco-iris.picker.nui'
 ---
 local M = {}
 
 --- Uses nui to pick a colorscheme
 ---
 ---@param callback function
----@param filter? caipirinha.Options.filter
+---@param filter? arco-iris.Options.filter
 function M.pick(callback, filter)
   local highlights = {
-    CaipirinhaButton = { default = true, link = 'CursorLine' },
-    CaipirinhaButtonActive = { default = true, link = 'Visual' },
-    CaipirinhaKeybind = { default = true, link = '@punctuation.special' },
+    ArcoIrisButton = { default = true, link = 'CursorLine' },
+    ArcoIrisButtonActive = { default = true, link = 'Visual' },
+    ArcoIrisKeybind = { default = true, link = '@punctuation.special' },
   }
 
   for hl_name, hl_config in pairs(highlights) do

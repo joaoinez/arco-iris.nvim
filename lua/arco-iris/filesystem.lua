@@ -1,11 +1,11 @@
 --- Functions to read, write and check for files in the filesystem.
 ---
----@module 'caipirinha.filesystem'
+---@module 'arco-iris.filesystem'
 ---
 local M = {}
 
 M.colorscheme_config_path = vim.fn.stdpath 'data'
-  .. '/caipirinha.nvim/colorscheme.json'
+  .. '/arco-iris.nvim/colorscheme.json'
 
 --- Checks if a file exists in the given path
 ---

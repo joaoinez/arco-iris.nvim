@@ -1,18 +1,18 @@
-local state = require 'caipirinha.picker.nui.state'
-local ui = require 'caipirinha.picker.nui.ui'
+local state = require 'arco-iris.picker.nui.state'
+local ui = require 'arco-iris.picker.nui.ui'
 
 --- nui UI header.
 ---
----@module 'caipirinha.picker.nui.header'
+---@module 'arco-iris.picker.nui.header'
 ---
 local M = {}
 
 --- Gets button's highlight groups based on provided state
 ---
 ---@param on boolean
----@return 'CaipirinhaButtonActive' | 'CaipirinhaButton'
+---@return 'ArcoIrisButtonActive' | 'ArcoIrisButton'
 local function get_button_hl(on)
-  return on and 'CaipirinhaButtonActive' or 'CaipirinhaButton'
+  return on and 'ArcoIrisButtonActive' or 'ArcoIrisButton'
 end
 
 --- Creates header filter tab
@@ -57,7 +57,7 @@ local function create_tab(text, keybind, active)
   tab:mount()
 
   local nui_text = NuiText(' ' .. text)
-  local nui_kb = NuiText((' (%s) '):format(keybind), 'CaipirinhaKeybind')
+  local nui_kb = NuiText((' (%s) '):format(keybind), 'ArcoIrisKeybind')
   local line = NuiLine {
     nui_text,
     nui_kb,

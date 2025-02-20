@@ -1,6 +1,6 @@
---- mini.pick picker integration for caipirinha.
+--- mini.pick picker integration for arco-iris.
 ---
----@module 'caipirinha.picker.mini'
+---@module 'arco-iris.picker.mini'
 ---
 local M = {}
 
@@ -9,10 +9,10 @@ local M = {}
 --- Uses mini.pick to pick a colorscheme
 ---
 ---@param callback function
----@param filter? caipirinha.Options.filter
+---@param filter? arco-iris.Options.filter
 function M.pick(callback, filter)
   local MiniPick = require 'mini.pick'
-  local colorschemes = require 'caipirinha.colorscheme'
+  local colorschemes = require 'arco-iris.colorscheme'
   local colors = colorschemes.get_installed_colorschemes(filter)
 
   local source = {

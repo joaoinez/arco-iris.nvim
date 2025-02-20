@@ -1,11 +1,11 @@
-local colorscheme = require 'caipirinha.colorscheme'
-local commands = require 'caipirinha.commands'
-local config = require 'caipirinha.config'
-local picker = require 'caipirinha.picker'
+local colorscheme = require 'arco-iris.colorscheme'
+local commands = require 'arco-iris.commands'
+local config = require 'arco-iris.config'
+local picker = require 'arco-iris.picker'
 
---- Public API for users to setup and use caipirinha.
+--- Public API for users to setup and use arco-iris.
 ---
----@module 'caipirinha'
+---@module 'arco-iris'
 ---
 local M = {}
 
@@ -16,13 +16,13 @@ local function is_configured() return M.options ~= nil end
 
 --- Plugin setup function
 ---
----@param options? caipirinha.Options
+---@param options? arco-iris.Options
 function M.setup(options)
   M.options = config.with_defaults(options)
 
   colorscheme.start(M.options)
 
-  vim.api.nvim_create_user_command('Caipirinha', commands.runner(M.options), {
+  vim.api.nvim_create_user_command('ArcoIris', commands.runner(M.options), {
     nargs = '*',
     complete = commands.parser,
   })
@@ -48,8 +48,8 @@ function M.apply_colorscheme(name, save)
 end
 
 ---@class picker.Options
----@field picker? caipirinha.Options.picker
----@field filter? caipirinha.Options.filter
+---@field picker? arco-iris.Options.picker
+---@field filter? arco-iris.Options.filter
 
 --- Calls provided picker to view and apply colorschemes
 ---

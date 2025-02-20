@@ -1,4 +1,4 @@
-# 🍹 `caipirinha.nvim`
+# 🌈 `arco-iris.nvim`
 
 A blazingly fast and effortless colorscheme manager
 
@@ -31,10 +31,10 @@ Install the plugin with your package manager:
 
 ```lua
 {
-  'joaoinez/caipirinha.nvim',
+  'joaoinez/arco-iris.nvim',
   priority = 1001,
   lazy = false,
-  --@type caipirinha.Options
+  --@type arco-iris.Options
   opts = {}
 }
 ```

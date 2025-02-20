@@ -1,9 +1,9 @@
-local state = require 'caipirinha.picker.nui.state'
-local ui = require 'caipirinha.picker.nui.ui'
+local state = require 'arco-iris.picker.nui.state'
+local ui = require 'arco-iris.picker.nui.ui'
 
 --- nui UI input.
 ---
----@module 'caipirinha.picker.nui.input'
+---@module 'arco-iris.picker.nui.input'
 ---
 local M = {}
 

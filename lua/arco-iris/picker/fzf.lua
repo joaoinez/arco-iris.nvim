@@ -1,6 +1,6 @@
---- fzf-lua picker integration for caipirinha.
+--- fzf-lua picker integration for arco-iris.
 ---
----@module 'caipirinha.picker.fzf'
+---@module 'arco-iris.picker.fzf'
 ---
 local M = {}
 
@@ -9,10 +9,10 @@ local M = {}
 --- Uses fzf-lua to pick a colorscheme
 ---
 ---@param callback function
----@param filter? caipirinha.Options.filter
+---@param filter? arco-iris.Options.filter
 function M.pick(callback, filter)
   local actions = require 'fzf-lua.actions'
-  local colorschemes = require 'caipirinha.colorscheme'
+  local colorschemes = require 'arco-iris.colorscheme'
   local config = require 'fzf-lua.config'
   local core = require 'fzf-lua.core'
   local shell = require 'fzf-lua.shell'

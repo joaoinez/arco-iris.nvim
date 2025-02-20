@@ -1,8 +1,8 @@
-local ui = require 'caipirinha.picker.nui.ui'
+local ui = require 'arco-iris.picker.nui.ui'
 
 --- nui UI container.
 ---
----@module 'caipirinha.picker.nui.container'
+---@module 'arco-iris.picker.nui.container'
 ---
 local M = {}
 

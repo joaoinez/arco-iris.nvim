@@ -1,6 +1,6 @@
---- telescope picker integration for caipirinha.
+--- telescope picker integration for arco-iris.
 ---
----@module 'caipirinha.picker.telescope'
+---@module 'arco-iris.picker.telescope'
 ---
 local M = {}
 
@@ -9,14 +9,14 @@ local M = {}
 --- Uses telescope to pick a colorscheme
 ---
 ---@param callback function
----@param filter? caipirinha.Options.filter
+---@param filter? arco-iris.Options.filter
 function M.pick(callback, filter)
   local pickers = require 'telescope.pickers'
   local finders = require 'telescope.finders'
   local conf = require('telescope.config').values
   local actions = require 'telescope.actions'
   local action_state = require 'telescope.actions.state'
-  local colorschemes = require 'caipirinha.colorscheme'
+  local colorschemes = require 'arco-iris.colorscheme'
   local colors = colorschemes.get_installed_colorschemes(filter)
 
   pickers
