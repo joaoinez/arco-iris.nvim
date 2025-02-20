@@ -30,6 +30,7 @@ M.default_colorschemes = {
   'slate',
   'sorbet',
   'torte',
+  'unokai',
   'vim',
   'wildcharm',
   'zaibatsu',
